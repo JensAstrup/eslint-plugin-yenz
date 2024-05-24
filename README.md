@@ -65,7 +65,3 @@ If you want to contribute to this project, feel free to submit issues or pull re
 ## License
 
 This project is licensed under the MIT License.
-
----
-
-This README now correctly describes the rule and provides accurate examples of incorrect and correct code.
