@@ -1,0 +1,16 @@
+{
+  "name": "eslint-plugin-yenz",
+  "version": "1.0.0",
+  "description": "Adds custom rules that Jens likes",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "author": "Jens Astrup",
+  "license": "ISC"
+}
