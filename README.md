@@ -44,7 +44,6 @@ This rule ensures that `null` and `undefined` types are listed last in TypeScrip
 #### Incorrect
 
 ```typescript
-let example: string | null | undefined;
 let example: undefined | string | null;
 ```
 
