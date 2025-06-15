@@ -1,38 +1,33 @@
 # eslint-plugin-yenz
 
-Adds custom ESLint rules that Jens likes.
+Adds custom rules that Jens likes
 
 ## Installation
 
 ```bash
-yarn add --dev eslint-plugin-yenz
+yarn add eslint-plugin-yenz --dev
 ```
 
-## Rules
+## Usage
 
-- `yenz/type-ordering` - Ensures null/undefined types come last in union types (with auto-fix)
-- `yenz/no-loops` - Disallows certain loop types (allows for...of and for...in)
-
-## Configuration
-
-### Flat Config (ESLint v9.0.0+)
+### Flat Config (ESLint 8.21.0+)
 
 ```javascript
 // eslint.config.js
-import yenzPlugin from 'eslint-plugin-yenz';
+import yenz from 'eslint-plugin-yenz';
 
 export default [
   {
     plugins: {
-      yenz: yenzPlugin,
+      yenz,
     },
     rules: {
       'yenz/type-ordering': 'error',
       'yenz/no-loops': 'warn',
     },
   },
-  // Or use a preset configuration
-  yenzPlugin.configs.recommended,
+  // Or use the recommended config
+  yenz.configs.recommended,
 ];
 ```
 
@@ -48,20 +43,20 @@ export default [
 }
 ```
 
+## Rules
+
+### `yenz/type-ordering`
+Ensures that null/undefined types are listed last in TypeScript union types.
+
+### `yenz/no-loops`
+Disallows certain loop types (allows for...of and for...in loops).
+
 ## Preset Configurations
 
 - `recommended` - Enables type-ordering as error, no-loops as warning
-- `all` - Enables all rules as errors
+- `
 
-## Development
-
-When developing new rules or updating existing ones, ensure that you have code samples that both pass and fail the rules. This helps verify that your rules are effective and catch the intended patterns.
-
-- Add or update test files that cover all cases for your rule (both valid and invalid code).
-- Run the linter against these files to confirm that violations are detected and auto-fixes work as expected.
-- Keep tests and example code up to date with any rule changes.
-
-## Release Procedure
+# Release Procedure
 
 1. Open a new branch for your work.
 2. Make all changes in that branch.
@@ -74,11 +69,11 @@ When developing new rules or updating existing ones, ensure that you have code s
      ```
    - For pre-releases (alpha, beta, rc):
      ```bash
-     yarn version --prerelease --preid beta   # or alpha
-     # Or for premajor, preminor, prepatch: 
-     yarn version --premajor --preid alpha
-     yarn version --preminor --preid beta
-     yarn version --prepatch --preid rc
+     yarn version --prerelease --preid alpha   # or beta, rc
+     # Or for specific version bumps:
+     yarn version --premajor --preid alpha    # 2.1.0-alpha.1 -> 3.0.0-alpha.0
+     yarn version --preminor --preid beta     # 2.1.0-alpha.1 -> 2.2.0-beta.0
+     yarn version --prepatch --preid rc       # 2.1.0-alpha.1 -> 2.1.1-rc.0
      ```
    - Commit and push your changes, then open a PR.
 6. After review, **merge your branch into `main`**.
