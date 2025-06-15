@@ -70,13 +70,19 @@ When developing new rules or updating existing ones, ensure that you have code s
 5. Once all checks pass, prepare a release:
 
    ```bash
-   yarn prepare version <major|minor|patch> --alpha [0,1,2,...]
+   yarn prepare version [--major|--minor|--patch|--premajor|--preminor|--prepatch|--prerelease]
    ```
 
-6. Run `yarn publish` to publish the new version to npm.
-7. Merge your branch to main.
-8. Run `yarn prepare version <major|minor|patch>` to update the version in the package.json.
-9. Run `yarn publish` to publish the new version to npm.
+   - Use one of the following flags to increment the version:
+     - `--major`       auto-increment major version number
+     - `--minor`       auto-increment minor version number
+     - `--patch`       auto-increment patch version number
+     - `--premajor`    auto-increment premajor version number
+     - `--preminor`    auto-increment preminor version number
+     - `--prepatch`    auto-increment prepatch version number
+     - `--prerelease`  auto-increment prerelease version number
+
+6. Merge your branch and publish as needed.
 
 ## License
 
