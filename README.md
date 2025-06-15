@@ -1,66 +1,83 @@
 # eslint-plugin-yenz
 
-Ensure specific types are listed before `null`/`undefined` in TypeScript type annotations.
+Adds custom ESLint rules that Jens likes.
 
 ## Installation
 
-Install the plugin using npm:
-
 ```bash
-npm install eslint-plugin-yenz --save-dev
+yarn add --dev eslint-plugin-yenz
 ```
 
-## Usage
+## Rules
 
-Add `yenz` to the plugins section of your `.eslintrc` configuration file. You can then configure the `type-ordering` rule under the rules section.
+- `yenz/type-ordering` - Ensures null/undefined types come last in union types (with auto-fix)
+- `yenz/no-loops` - Disallows certain loop types (allows for...of and for...in)
 
-### .eslintrc
+## Configuration
+
+### Flat Config (ESLint v9.0.0+)
+
+```javascript
+// eslint.config.js
+import yenzPlugin from 'eslint-plugin-yenz';
+
+export default [
+  {
+    plugins: {
+      yenz: yenzPlugin,
+    },
+    rules: {
+      'yenz/type-ordering': 'error',
+      'yenz/no-loops': 'warn',
+    },
+  },
+  // Or use a preset configuration
+  yenzPlugin.configs.recommended,
+];
+```
+
+### Legacy Config (.eslintrc)
 
 ```json
 {
   "plugins": ["yenz"],
   "rules": {
-    "yenz/type-ordering": "error"
+    "yenz/type-ordering": "error",
+    "yenz/no-loops": "warn"
   }
 }
 ```
 
-## Rule Details
+## Preset Configurations
 
-This rule ensures that `null` and `undefined` types are listed last in TypeScript union type annotations.
+- `recommended` - Enables type-ordering as error, no-loops as warning
+- `all` - Enables all rules as errors
 
-### Rule Configuration
+## Development
 
-```json
-{
-  "rules": {
-    "yenz/type-ordering": ["error"]
-  }
-}
-```
+When developing new rules or updating existing ones, ensure that you have code samples that both pass and fail the rules. This helps verify that your rules are effective and catch the intended patterns.
 
-### Example
+- Add or update test files that cover all cases for your rule (both valid and invalid code).
+- Run the linter against these files to confirm that violations are detected and auto-fixes work as expected.
+- Keep tests and example code up to date with any rule changes.
 
-#### Incorrect
+## Release Procedure
 
-```typescript
-let example: undefined | string | null;
-```
+1. Open a new branch for your work.
+2. Make all changes in that branch.
+3. Run `yarn lint` and resolve any errors.
+4. Add code samples that intentionally fail your new or updated rules to confirm they are caught.
+5. Once all checks pass, prepare a release:
 
-#### Correct
+   ```bash
+   yarn prepare version <major|minor|patch> --alpha [0,1,2,...]
+   ```
 
-```typescript
-let example: string | undefined | null;
-```
-
-## Fixable
-
-This rule is fixable. The fixer will automatically move `null` and `undefined` to the end of the union type.
-
-## Contributing
-
-If you want to contribute to this project, feel free to submit issues or pull requests.
+6. Run `yarn publish` to publish the new version to npm.
+7. Merge your branch to main.
+8. Run `yarn prepare version <major|minor|patch>` to update the version in the package.json.
+9. Run `yarn publish` to publish the new version to npm.
 
 ## License
 
-This project is licensed under the MIT License.
+ISC

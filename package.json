@@ -7,10 +7,21 @@
   "directories": {
     "lib": "lib"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
   "keywords": [
-    "eslint"
+    "eslint",
+    "eslint-plugin",
+    "typescript",
+    "flat-config"
   ],
   "author": "Jens Astrup",
-  "license": "ISC"
+  "license": "ISC",
+  "peerDependencies": {
+    "eslint": ">=8.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
