@@ -11,7 +11,7 @@ ESLint plugin (`eslint-plugin-yenz`) providing three custom rules: `type-orderin
 - **Install dependencies:** `yarn install`
 - **Run tests:** `yarn test` (runs `node test/run.js`)
 
-There is no build step — source files are used directly.
+There is no build step - source files are used directly.
 
 ## Architecture
 
@@ -23,9 +23,9 @@ There is no build step — source files are used directly.
 
 Each rule module exports a default object with `meta` (metadata) and `create(context)` (returns AST node listeners). Rules use `context.report()` for violations and `context.sourceCode` for text manipulation.
 
-- **type-ordering** — Ensures `null`/`undefined` appear last in TypeScript union types. Auto-fixable. Listens to `TSUnionType`.
-- **no-loops** — Disallows `for`, `while`, `do...while` (allows `for...of` and `for...in`). Not fixable. Listens to `ForStatement`, `WhileStatement`, `DoWhileStatement`.
-- **no-named-arrow-functions** — Disallows arrow functions assigned to named variables; prefers function declarations. Auto-fixable. Listens to `VariableDeclarator`.
+- **type-ordering** - Ensures `null`/`undefined` appear last in TypeScript union types. Auto-fixable. Listens to `TSUnionType`.
+- **no-loops** - Disallows `for`, `while`, `do...while` (allows `for...of` and `for...in`). Not fixable. Listens to `ForStatement`, `WhileStatement`, `DoWhileStatement`.
+- **no-named-arrow-functions** - Disallows arrow functions assigned to named variables; prefers function declarations. Auto-fixable. Listens to `VariableDeclarator`.
 
 ### Testing
 

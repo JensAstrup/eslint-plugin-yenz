@@ -2,6 +2,7 @@ import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const fixtureFile = path.resolve(__dirname, 'fixtures.ts');
@@ -17,6 +18,12 @@ const expected = [
   { line: 27, ruleId: 'yenz/no-named-arrow-functions' },
   { line: 28, ruleId: 'yenz/no-named-arrow-functions' },
   { line: 29, ruleId: 'yenz/no-named-arrow-functions' },
+  { line: 30, ruleId: 'yenz/no-named-arrow-functions' },
+  { line: 31, ruleId: 'yenz/no-named-arrow-functions' },
+  { line: 32, ruleId: 'yenz/no-named-arrow-functions' },
+  { line: 33, ruleId: 'yenz/no-named-arrow-functions' },
+  { line: 34, ruleId: 'yenz/no-named-arrow-functions' },
+  { line: 35, ruleId: 'yenz/no-named-arrow-functions' },
 ];
 
 let output;

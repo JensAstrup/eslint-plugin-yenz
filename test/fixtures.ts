@@ -27,6 +27,12 @@ const foo = () => {}
 const bar = (x: number) => x * 2
 const baz = async () => {}
 const typed: () => void = () => {}
+const generic = <T>(x: T) => x
+const typedReturn = (x: number): number => x
+const asyncWithParams = async (x: number) => x
+let lv = () => {}
+var vv = () => {}
+export const exported = () => {}
 
 // Should pass:
 const arr2 = [1, 2, 3].map(x => x)
