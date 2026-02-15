@@ -54,6 +54,7 @@ Ensures that `null`/`undefined` types are listed last in TypeScript union types.
 Requires `typescript-eslint` parser to work (see [Installation](#installation)).
 
 **Bad:**
+
 ```typescript
 type A = null | string
 type B = undefined | number
@@ -61,6 +62,7 @@ type C = null | undefined | string | number
 ```
 
 **Good:**
+
 ```typescript
 type A = string | null
 type B = number | undefined
@@ -74,6 +76,7 @@ Disallows `for`, `while`, and `do...while` loops. `for...of` and `for...in` are 
 > **Note:** This rule is _not_ enabled in the `recommended` preset. Enable it explicitly or use the `all` preset.
 
 **Bad:**
+
 ```javascript
 for (let i = 0; i < items.length; i++) { /* ... */ }
 while (condition) { /* ... */ }
@@ -81,6 +84,7 @@ do { /* ... */ } while (condition)
 ```
 
 **Good:**
+
 ```javascript
 for (const item of items) { /* ... */ }
 for (const key in obj) { /* ... */ }
@@ -95,6 +99,7 @@ Disallows arrow functions assigned to named variables. Prefer function declarati
 > **Note:** This rule is _not_ enabled in the `recommended` preset. Enable it explicitly or use the `all` preset.
 
 **Bad:**
+
 ```javascript
 const foo = () => {};
 const bar = (x) => { return x + 1; };
@@ -103,6 +108,7 @@ export const qux = () => {};
 ```
 
 **Good:**
+
 ```javascript
 function foo() {}
 function bar(x) { return x + 1; }
