@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-yenz",
-  "version": "9.1.0-beta.0",
+  "version": "2.1.0-beta.0",
   "description": "Adds custom rules that Jens likes",
   "repository": "https://github.com/JensAstrup/eslint-plugin-yenz",
   "type": "module",
