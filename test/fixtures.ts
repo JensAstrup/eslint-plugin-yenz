@@ -26,6 +26,7 @@ function loopTests() {
 const foo = () => {}
 const bar = (x: number) => x * 2
 const baz = async () => {}
+const typed: () => void = () => {}
 
 // Should pass:
 const arr2 = [1, 2, 3].map(x => x)

@@ -16,6 +16,7 @@ const expected = [
   { line: 26, ruleId: 'yenz/no-named-arrow-functions' },
   { line: 27, ruleId: 'yenz/no-named-arrow-functions' },
   { line: 28, ruleId: 'yenz/no-named-arrow-functions' },
+  { line: 29, ruleId: 'yenz/no-named-arrow-functions' },
 ];
 
 let output;
