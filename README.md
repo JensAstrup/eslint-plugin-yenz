@@ -117,8 +117,8 @@ class Foo { bar = () => {} }
 
 ## Preset Configurations
 
-- **`recommended`** — Enables `type-ordering` as error and `no-loops` as warning
-- **`all`** — Enables all rules (`type-ordering`, `no-loops`, `no-named-arrow-functions`) as errors
+- **`recommended`** - Enables `type-ordering` as error and `no-loops` as warning
+- **`all`** - Enables all rules (`type-ordering`, `no-loops`, `no-named-arrow-functions`) as errors
 
 # Release Procedure
 
@@ -129,7 +129,7 @@ class Foo { bar = () => {} }
 5. Commit and push your changes, then open a PR.
 6. **Bump to a pre-release version and publish a beta:**
    ```bash
-   yarn version --preminor --preid beta   # or --premajor, --prepatch
+   yarn version --pre[major|minor|patch] --preid beta
    yarn publish --tag beta                # or alpha, rc
    ```
    Users can test it with:
@@ -139,6 +139,6 @@ class Foo { bar = () => {} }
 7. After review, **merge your branch into `main`**.
 8. **Publish the stable release** from `main`:
    ```bash
-   yarn version --major   # or --minor or --patch
+   yarn version --[major|minor|patch]
    yarn publish
    ```
