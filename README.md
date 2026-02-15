@@ -126,34 +126,19 @@ class Foo { bar = () => {} }
 2. Make all changes in that branch.
 3. Run `yarn lint` and resolve any errors.
 4. Add code samples in `test/` that intentionally fail your new or updated rules to confirm they are caught.
-5. **Bump the version:**
-   - For stable releases:
-     ```bash
-     yarn version --major   # or --minor or --patch
-     ```
-   - For pre-releases (alpha, beta, rc):
-     ```bash
-     yarn version --prerelease --preid alpha   # or beta, rc
-     # Or for specific version bumps:
-     yarn version --premajor --preid alpha    # 2.1.0-alpha.1 -> 3.0.0-alpha.0
-     yarn version --preminor --preid beta     # 2.1.0-alpha.1 -> 2.2.0-beta.0
-     yarn version --prepatch --preid rc       # 2.1.0-alpha.1 -> 2.1.1-rc.0
-     ```
-   - Commit and push your changes, then open a PR.
-6. After review, **merge your branch into `main`**.
-7. **Publish the package:**
-   - On the `main` branch, pull the latest changes and run:
-     - For stable releases:
-       ```bash
-       yarn publish
-       ```
-     - For pre-releases (alpha, beta, rc):
-       ```bash
-       yarn publish --tag beta   # or alpha, rc
-       ```
-   - This will publish the version already set in `package.json`.
-   - _Do not run `yarn publish` before merging to `main`._
-8. Users can install pre-releases with:
+5. Commit and push your changes, then open a PR.
+6. **Bump to a pre-release version and publish a beta:**
+   ```bash
+   yarn version --prerelease --preid beta   # or alpha, rc
+   yarn publish --tag beta                  # or alpha, rc
+   ```
+   Users can test it with:
    ```bash
    yarn add eslint-plugin-yenz@beta   # or @alpha, @rc
+   ```
+7. After review, **merge your branch into `main`**.
+8. **Publish the stable release** from `main`:
+   ```bash
+   yarn version --major   # or --minor or --patch
+   yarn publish
    ```
