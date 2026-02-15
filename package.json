@@ -3,12 +3,13 @@
   "version": "2.0.0",
   "description": "Adds custom rules that Jens likes",
   "repository": "https://github.com/JensAstrup/eslint-plugin-yenz",
+  "type": "module",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"No tests yet\""
+    "test": "node test/run.js"
   },
   "keywords": [
     "eslint",
@@ -18,8 +19,14 @@
   ],
   "author": "Jens Astrup",
   "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.0.0",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.0.0"
+  },
   "peerDependencies": {
-    "eslint": ">=8.0.0"
+    "eslint": ">=8.0.0",
+    "typescript-eslint": ">=8.0.0"
   },
   "engines": {
     "node": ">=14.0.0"
