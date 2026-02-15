@@ -129,8 +129,8 @@ class Foo { bar = () => {} }
 5. Commit and push your changes, then open a PR.
 6. **Bump to a pre-release version and publish a beta:**
    ```bash
-   yarn version --prerelease --preid beta   # or alpha, rc
-   yarn publish --tag beta                  # or alpha, rc
+   yarn version --preminor --preid beta   # or --premajor, --prepatch
+   yarn publish --tag beta                # or alpha, rc
    ```
    Users can test it with:
    ```bash
