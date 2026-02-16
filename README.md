@@ -143,6 +143,7 @@ class Foo { bar = () => {} }
    yarn add eslint-plugin-yenz@beta   # or @alpha, @rc
    ```
 7. After review, **merge your branch into `main`**.
+8. Open a version bump PR against `main` and merge it in.
 8. **Publish the stable release** from `main`:
    ```bash
    yarn version --[major|minor|patch]
