@@ -1,7 +1,12 @@
+import typeOrdering from './lib/rules/type-ordering.js';
+import noLoops from './lib/rules/no-loops.js';
+import noNamedArrowFunctions from './lib/rules/no-named-arrow-functions.js';
+
 const plugin = {
   rules: {
-    'type-ordering': require('./lib/rules/type-ordering.js'),
-    'no-loops': require('./lib/rules/no-loops.js'),
+    'type-ordering': typeOrdering,
+    'no-loops': noLoops,
+    'no-named-arrow-functions': noNamedArrowFunctions,
   },
 };
 
@@ -23,8 +28,9 @@ plugin.configs = {
     rules: {
       'yenz/type-ordering': 'error',
       'yenz/no-loops': 'error',
+      'yenz/no-named-arrow-functions': 'error',
     },
   },
 };
 
-module.exports = plugin;
+export default plugin;
