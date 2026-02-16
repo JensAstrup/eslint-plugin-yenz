@@ -37,5 +37,5 @@ When adding a rule or modifying behavior: update `fixtures.ts` with positive/neg
 
 Use semver to determine the appropriate bump level based on the nature of changes (major for breaking, minor for new features, patch for fixes).
 
-Pre-release: `yarn version --pre<major|minor|patch> --preid beta` then `yarn publish --tag beta`
-Stable: `yarn version --<major|minor|patch>` then `yarn publish`
+Pre-release: `yarn version --pre<major|minor|patch> --preid beta` then `npm publish --tag beta`
+Stable: `yarn version --<major|minor|patch>` then `npm publish`

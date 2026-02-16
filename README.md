@@ -136,7 +136,7 @@ class Foo { bar = () => {} }
 6. **Bump to a pre-release version and publish a beta:**
    ```bash
    yarn version --pre[major|minor|patch] --preid beta
-   yarn publish --tag beta                # or alpha, rc
+   npm publish --tag beta                # or alpha, rc
    ```
    Users can test it with:
    ```bash
@@ -146,5 +146,7 @@ class Foo { bar = () => {} }
 8. **Publish the stable release** from `main`:
    ```bash
    yarn version --[major|minor|patch]
-   yarn publish
+   npm publish
    ```
+
+> **Why `yarn version` + `npm publish`?** `yarn version` handles the version bump, git tag, and commit. We use `npm publish` for the actual publish because `yarn publish` redundantly prompts for a new version even when one was already set.
