@@ -124,7 +124,7 @@ class Foo { bar = () => {} }
 ## Preset Configurations
 
 - `**recommended**` - Enables `type-ordering` as error and `no-loops` as warning
-- `**all**` - Enables all rules (`type-ordering`, `no-loops`, `no-named-arrow-functions`) as errors
+- `**all**` - Enables all rules (`type-ordering`, `no-loops`, `no-named-arrow-functions`, `export-at-end-of-file`) as errors
 
 # Release Procedure
 
