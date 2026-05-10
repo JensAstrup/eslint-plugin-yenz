@@ -31,6 +31,7 @@ plugin.configs = {
       'yenz/type-ordering': 'error',
       'yenz/no-loops': 'error',
       'yenz/no-named-arrow-functions': 'error',
+      'yenz/export-at-end-of-file': 'error',
     },
   },
 };

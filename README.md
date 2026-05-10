@@ -121,6 +121,42 @@ arr.filter((item) => item.active);
 class Foo { bar = () => {} }
 ```
 
+### `yenz/export-at-end-of-file`
+
+Disallows inline exports on function, class, type alias, and interface declarations. Prefer declaring first, then exporting all symbols in one statement at the end of the file. Auto-fixable.
+
+> **Note:** This rule is *not* enabled in the `recommended`. Enable it explicitly or use `all`.
+
+**Bad:**
+
+```typescript
+export function parseDate(input: string) {
+  return new Date(input);
+}
+
+export interface UserProfile {
+  id: string;
+}
+
+export type UserStatus = 'active' | 'inactive';
+```
+
+**Good:**
+
+```typescript
+function parseDate(input: string) {
+  return new Date(input);
+}
+
+interface UserProfile {
+  id: string;
+}
+
+type UserStatus = 'active' | 'inactive';
+
+export { parseDate, type UserProfile, type UserStatus };
+```
+
 ## Preset Configurations
 
 - `**recommended**` - Enables `type-ordering` as error and `no-loops` as warning
