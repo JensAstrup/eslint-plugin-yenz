@@ -29,7 +29,7 @@ const typedReturn = (x: number): number => x // expect-error yenz/no-named-arrow
 const asyncWithParams = async (x: number) => x // expect-error yenz/no-named-arrow-functions // fix: async function asyncWithParams(x: number) { return x; }
 let lv = () => {} // expect-error yenz/no-named-arrow-functions // fix: function lv() {}
 var vv = () => {} // expect-error yenz/no-named-arrow-functions // fix: function vv() {}
-export const exported = () => {} // expect-error yenz/no-named-arrow-functions // fix: export function exported() {}
+export const exported = () => {} // expect-error yenz/no-named-arrow-functions // fix: function exported() {}
 
 // Should pass:
 const arr2 = [1, 2, 3].map(x => x)
@@ -39,3 +39,11 @@ class MyClass {
 const obj2 = {
   method: () => {}
 }
+
+export function exportFunction() { return 1; } // expect-error yenz/export-at-end-of-file // fix: function exportFunction() { return 1; }
+
+export class ExportClass { method() { return 1; } } // expect-error yenz/export-at-end-of-file // fix: class ExportClass { method() { return 1; } }
+
+export type FixtureExportType = 1 // expect-error yenz/export-at-end-of-file // fix: type FixtureExportType = 1
+
+export interface FixtureExportIface { n: number } // expect-error yenz/export-at-end-of-file // fix: interface FixtureExportIface { n: number }

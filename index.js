@@ -1,12 +1,14 @@
 import typeOrdering from './lib/rules/type-ordering.js';
 import noLoops from './lib/rules/no-loops.js';
 import noNamedArrowFunctions from './lib/rules/no-named-arrow-functions.js';
+import exportAtEndOfFile from './lib/rules/export-at-end-of-file.js';
 
 const plugin = {
   rules: {
     'type-ordering': typeOrdering,
     'no-loops': noLoops,
     'no-named-arrow-functions': noNamedArrowFunctions,
+    'export-at-end-of-file': exportAtEndOfFile,
   },
 };
 
