@@ -124,7 +124,7 @@ class Foo { bar = () => {} }
 ## Preset Configurations
 
 - `**recommended**` - Enables `type-ordering` as error and `no-loops` as warning
-- `**all**` - Enables all rules (`type-ordering`, `no-loops`, `no-named-arrow-functions`, `export-at-end-of-file`) as errors
+- `**all**` - Enables `type-ordering`, `no-loops`, and `no-named-arrow-functions` as errors
 
 # Release Procedure
 
@@ -134,14 +134,17 @@ class Foo { bar = () => {} }
 4. Add code samples in `test/` that intentionally fail your new or updated rules to confirm they are caught.
 5. Commit and push your changes, then open a PR.
 6. **Bump to a pre-release version and publish a beta:**
+
   ```bash
    yarn version --pre[major|minor|patch] --preid beta
    npm publish --tag beta                # or alpha, rc
   ```
+
    Users can test it with:
 7. After review, **merge your branch into `main`**.
 8. Open a version bump PR against `main` and merge it in.
 9. **Publish the stable release** from `main`:
+
   ```bash
    yarn version --[major|minor|patch]
    npm publish

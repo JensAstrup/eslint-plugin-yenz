@@ -47,3 +47,9 @@ export class ExportClass { method() { return 1; } } // expect-error yenz/export-
 export type FixtureExportType = 1 // expect-error yenz/export-at-end-of-file // fix: type FixtureExportType = 1
 
 export interface FixtureExportIface { n: number } // expect-error yenz/export-at-end-of-file // fix: interface FixtureExportIface { n: number }
+
+// Should pass (export-at-end-of-file — specifier exports and non-exported decls only):
+function notExported() {}
+function someExisting() {}
+export { someExisting }
+export { foo } from './other'
