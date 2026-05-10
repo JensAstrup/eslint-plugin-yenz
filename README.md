@@ -152,3 +152,46 @@ class Foo { bar = () => {} }
 # Development
 - Use https://astexplorer.net/ to easily get the AST types for your changes
 
+## Adding tests
+
+Tests are fixture-based. All test cases live in a single file, `test/fixtures.ts`, and the runner (`test/run.js`) lints that file with ESLint, parses the JSON output, and compares it against inline annotations.
+
+### Annotations
+
+Each line in `test/fixtures.ts` may carry one or both of the following trailing comments:
+
+- `// expect-error <ruleId>` — the line must produce a violation reported by `<ruleId>` (e.g. `yenz/no-loops`).
+- `// fix: <expected-code>` — after running ESLint with `--fix-dry-run`, the line (with the `// expect-error ...` annotation stripped) must equal `<expected-code>`.
+
+Lines without `// expect-error` must produce **no** violations. Unexpected violations fail the test, just like missing ones.
+
+### Adding a positive case (rule should fire)
+
+Add a line that violates the rule and annotate it:
+
+```typescript
+const foo = () => {} // expect-error yenz/no-named-arrow-functions
+```
+
+If the rule is auto-fixable, also include the expected fixed output:
+
+```typescript
+const foo = () => {} // expect-error yenz/no-named-arrow-functions // fix: function foo() {}
+```
+
+### Adding a negative case (rule should not fire)
+
+Add the code with no annotation. A short `// Should pass:` comment above the block keeps the file readable:
+
+```typescript
+// Should pass:
+const arr = [1, 2, 3].map(x => x)
+```
+
+### Running tests
+
+```bash
+yarn test
+```
+
+The runner reports `Violations: X/Y passed` and `Fixes: X/Y passed`, and exits non-zero on any missing violation, unexpected violation, or fix mismatch.
