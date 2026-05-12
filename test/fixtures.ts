@@ -53,5 +53,5 @@ export default function defaultExport() { return 1; } // expect-error yenz/expor
 // Should pass (export-at-end-of-file — specifier exports and non-exported decls only):
 function notExported() {}
 function someExisting() {}
-export { someExisting }
+export { someExisting as someExistingPublic }
 export { foo } from './other'
