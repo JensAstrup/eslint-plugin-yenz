@@ -48,8 +48,10 @@ export type FixtureExportType = 1 // expect-error yenz/export-at-end-of-file // 
 
 export interface FixtureExportIface { n: number } // expect-error yenz/export-at-end-of-file // fix: interface FixtureExportIface { n: number }
 
+export default function defaultExport() { return 1; } // expect-error yenz/export-at-end-of-file // fix: function defaultExport() { return 1; }
+
 // Should pass (export-at-end-of-file — specifier exports and non-exported decls only):
 function notExported() {}
 function someExisting() {}
-export { someExisting }
+export { someExisting as someExistingPublic }
 export { foo } from './other'
